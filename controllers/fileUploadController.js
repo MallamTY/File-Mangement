@@ -101,7 +101,6 @@ const multipleFilesUpload = async(req, res, next) => {
           }
           async function upload () {
              var s3File = await awsFileUploader(element)
-             console.log(s3File)
              await unlinkFile(element.path)
           }
                   await upload()
@@ -125,58 +124,7 @@ const multipleFilesUpload = async(req, res, next) => {
          res.status(400).send(error.message)
      }
 }
-    // try {
-    //           let publicUrls = [];
-          
-    //           const result = await Promise.all(
-    //             req.files.map(async (uploadFile) => {
-    //               fs.promises.readFile(uploadFile.path).then((file) => {
-    //                 let body = fs.createReadStream(uploadFile.path);
-    //                 const s3Params = {
-    //                   Bucket: BUCKET_NAME,
-    //                   Key: uploadFile.filename,
-    //                   Body: body
-    //                 };
-          
-    //                 s3.upload(s3Params)
-    //                   .promise()
-    //                   .then((response) => {
-    //                     console.log(response.Location);
-    //                     publicUrls.push(response.Location);
-
-    //                   });
-    //               });
-    //             })
-    //           );
-    //           if (result) {
-    //             console.log("Result", result);
-    //             res.json(publicUrls);
-    //           }
-            
-    // } catch (error) {
-    //     console.log(error)
-    // }
-//}
-
-const getallSingleFile = async(req, res, next) => {
-    try {
-        const file = await singleFile.find()
-        res.status(200).send(file)
-    } catch (error) {
-        res.status(400).send(error.message)
-    }
-}
-
-
-
-const getallMutitpleFile = async(req, res, next) => {
-    try {
-        const files = await multipleFile.find()
-        res.status(200).send(files)
-    } catch (error) {
-        res.status(400).send(error.message)
-    }
-}
+   
 
 
 
@@ -196,7 +144,6 @@ const fileSizeFormatter = (byte, decimal) => {
 
 module.exports = {
     singleFileUpload,
-    multipleFilesUpload,
-    getallMutitpleFile,
-    getallSingleFile
+    multipleFilesUpload
+
 }

@@ -33,8 +33,6 @@
          }
          
       })
-      console.log(fileUrl)
-      return fileUrl
         
     
  }
