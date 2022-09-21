@@ -6,7 +6,9 @@ const multipleFilesSchema = new schema({
         type: String,
         required: true
     },
-    files: [Object]
+    files: [Object],
+
+    file_location: [Object]
 }, {timestamps: true})
 
 module.exports = mongoose.model('Multiple-Files', multipleFilesSchema)

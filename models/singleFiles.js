@@ -18,6 +18,10 @@ const singleFileSchema = new schema({
     fileSize: {
         type: String,
         required: true
+    },
+    fileLocation: {
+       type: String,
+       //required: true
     }
 }, {timestamps: true})
 
