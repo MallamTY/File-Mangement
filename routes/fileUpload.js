@@ -1,16 +1,16 @@
 'use strict';
 
 const express = require('express');
-const {upload} = require('../helpers/filehelper');
+const {upload, multerUploads, multiMulterUploads} = require('../helpers/filehelper');
 const {singleFileUpload, multipleFilesUpload} = require('../controllers/fileUploadController');
 const router = express.Router();
 
 
-router.post('/singleFile', upload.single('file'), singleFileUpload);
-router.post('/multipleFile', upload.array('files'), multipleFilesUpload);
+router.post('/singleFile', multerUploads, singleFileUpload);
+router.post('/multipleFile', multiMulterUploads, multipleFilesUpload);
 
 module.exports = router
 
 
 
-
+multiMulterUploads

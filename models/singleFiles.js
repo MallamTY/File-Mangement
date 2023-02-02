@@ -3,25 +3,10 @@ const { default: mongoose } = require('mongoose');
 
 const schema = mongoose.Schema
 const singleFileSchema = new schema({
-    fileName: {
-        type: String,
-        required: true
-    },
-    fileType: {
-        type: String,
-        required: true
-    },
-    filePath: {
-        type: String,
-        required: true
-    },
-    fileSize: {
-        type: String,
-        required: true
-    },
-    fileLocation: {
+   
+    file_url: {
        type: String,
-       //required: true
+       required: true
     }
 }, {timestamps: true})
 
